@@ -1,5 +1,6 @@
-# Reflect the data model shown in schema/addressbook_normalized.png within database decodemtl_addressbook
+# Exercise 1
 --------------------------------------------------------------------------------
+# Reflect the data model shown in schema/addressbook_normalized.png within database decodemtl_addressbook
 #    Account.id is a primary auto-increment key
 #    AddressBook.id is a primary auto-increment key
 #    Entry.id is a primary auto-increment key

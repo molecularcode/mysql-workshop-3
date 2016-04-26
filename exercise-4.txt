@@ -1,0 +1,89 @@
+# Exercise 4
+--------------------------------------------------------------------------------
+# List all of the first names for AddressBook.name="Pharetra Ut Limited"
+# The first and last letters should be capitalized
+
+
+mysql>  SELECT
+            CONCAT (
+            UPPER(SUBSTRING(firstName,1,1)),
+            LOWER(SUBSTRING(firstName,2,CHAR_LENGTH(firstName)-1)),
+            UPPER(SUBSTRING(firstName,CHAR_LENGTH(firstName)-1,1))
+            )
+            AS firstName
+        FROM
+            Entry
+        INNER JOIN 
+            AddressBook AS ab ON Entry.addressBookId= ab.id
+        WHERE
+            name="Pharetra Ut Limited";
+
++--------------+
+| firstName    |
++--------------+
+| ZeleniaI     |
+| AbdulU       |
+| IdolaL       |
+| IllanaN      |
+| WinifredE    |
+| BuckminsterE |
+| HeidiD       |
+| NellL        |
+| CiaraR       |
+| SylviaI      |
+| CarynY       |
+| DieterE      |
+| JamaliaI     |
+| HerrodO      |
+| UnityT       |
+| PascaleL     |
+| ColtonO      |
+| JamalA       |
+| AbelE        |
+| ZenaN        |
+| PrescottT    |
+| IdonaN       |
+| PalomaM      |
+| NeveV        |
+| KylaL        |
+| KimberleyE   |
+| JillianA     |
+| AddisonO     |
+| JacquelineN  |
+| SashaH       |
+| LeeE         |
+| SalvadorO    |
+| YokoK        |
+| StacyC       |
+| HaleeE       |
+| BlytheH      |
+| TadA         |
+| HaleyE       |
+| LaraR        |
+| SummerE      |
+| LatifahA     |
+| FaithT       |
+| StaceyE      |
+| JenniferE    |
+| FultonO      |
+| ColinI       |
+| ThaneN       |
+| CarynY       |
+| BoB          |
+| JamalA       |
+| AmenaN       |
+| MelanieI     |
+| DriscollL    |
+| GarethT      |
+| ColtL        |
+| MarthaH      |
+| SierraR      |
+| NitaT        |
+| CelesteT     |
+| KathleenE    |
+| SamuelE      |
+| AaronO       |
+| CheyenneN    |
+| BrettT       |
+| RebekahA     |
++--------------+

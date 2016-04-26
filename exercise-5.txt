@@ -1,0 +1,32 @@
+# Exercise 5
+--------------------------------------------------------------------------------
+# List all of the emails associated to AddressBook.id = 100
+
+
+mysql>  SELECT
+            addressBookId, content
+        FROM
+            ElectronicMail AS em
+        INNER JOIN 
+            Entry ON em.entryId = Entry.id
+        WHERE
+            addressBookId=100;
+
++---------------+--------------------------------------------+
+| addressBookId | content                                    |
++---------------+--------------------------------------------+
+|           100 | Nam.tempor@nisimagna.co.uk                 |
+|           100 | vitae.diam@sapienAeneanmassa.com           |
+|           100 | cursus.vestibulum@pellentesqueSeddictum.ca |
+|           100 | velit@vestibulum.co.uk                     |
+|           100 | tincidunt.congue.turpis@Inmi.net           |
+|           100 | nibh.Donec.est@nibh.org                    |
+|           100 | malesuada.fames.ac@Sedeu.co.uk             |
+|           100 | tortor.dictum@Nulla.org                    |
+|           100 | mauris.blandit.mattis@Integersemelit.net   |
+|           100 | Nunc.ac@parturientmontesnascetur.com       |
+|           100 | vulputate.posuere.vulputate@liberoDonec.ca |
+|           100 | massa.Quisque.porttitor@enimSednulla.edu   |
+|           100 | eget@viverraMaecenasiaculis.net            |
+|           100 | eu.tellus@ipsum.co.uk                      |
++---------------+--------------------------------------------+

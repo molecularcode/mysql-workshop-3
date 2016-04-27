@@ -10,4 +10,6 @@
 
 Opps, deleted my mysql DB with all config settings, users, permissions etc. Then killed all MySQL process running
 
-sudo /etc/init.d/mysql restart
+sudo mysql_install_db
+sudo service mysql start
+mysql -u root

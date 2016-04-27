@@ -1,0 +1,29 @@
+# Exercise 18
+-------------------------------------------------------------------------
+# Create an exact copy of decodemtl_addressbook.Account and its data
+# The copy's modifiedOn column should reflect today's date
+
+
+mysql> show create table Account \G
+
+mysql> CREATE TABLE NewAccount (
+      id int(11) NOT NULL AUTO_INCREMENT,
+      email varchar(255) DEFAULT NULL,
+      password varchar(40) DEFAULT NULL,
+      createdOn datetime DEFAULT NULL,
+      modifiedOn datetime DEFAULT NULL,
+      PRIMARY KEY (id)
+    );
+
+
+
+mysql> INSERT INTO NewAccount (
+        id,
+        email,
+        password,
+        createdOn,
+        modifiedOn
+    )
+    SELECT
+        id, email, password, createdOn, NOW()
+    FROM Account;

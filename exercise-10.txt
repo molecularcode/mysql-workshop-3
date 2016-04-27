@@ -8,7 +8,7 @@ mysql>  SELECT
         FROM
             Entry
         WHERE
-            (TIME(birthday) >= '20:00:00' AND TIME(birthday) <= '21:00:00')
+            (HOUR(birthday) BETWEEN '20' AND '21')
                 AND
             MONTH(birthday) != '02'
         ORDER BY

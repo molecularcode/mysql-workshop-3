@@ -5,7 +5,7 @@
 
 
 mysql>  SELECT 
-            CONCAT(countryCode, areaCode, lineNum) as faxNum,
+            CONCAT(countryCode, areaCode, lineNum) AS faxNum,
             subtype
         FROM (SELECT
             RIGHT(content, 8) AS lineNum,
@@ -20,7 +20,7 @@ mysql>  SELECT
         FROM
             Phone
         WHERE
-            subtype="fax") as tablesplit ;
+            subtype="fax") AS tablesplit ;
 
 +-----------------+---------+
 | faxNum          | subtype |

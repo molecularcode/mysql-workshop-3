@@ -1,0 +1,95 @@
+# Exercise 15
+-------------------------------------------------------------------------
+# Transform all work emails into home emails and vice versa
+
+
+mysql>  ALTER TABLE ElectronicMail
+        CHANGE type type ENUM('home','work', 'other', 'temp');
+
+        -- home becomes temp
+        UPDATE ElectronicMail
+        SET type='temp'
+        WHERE type='home';
+
+        -- work becomes home
+        UPDATE ElectronicMail
+        SET type='home'
+        WHERE type='work';
+        
+        -- temp becomes work
+        UPDATE ElectronicMail
+        SET type='work'
+        WHERE type='temp';
+        
+        ALTER TABLE ElectronicMail
+        CHANGE type type ENUM('home','work', 'other');
+
+
+
+-- home becomes temp
+|  71 |    5457 | work  | tristique@ligulaAeneaneuismod.co.uk               |
+|  72 |    5812 | work  | lacinia.orci.consectetuer@Curabitur.ca            |
+|  73 |    5046 | work  | torquent.per@eleifendnon.net                      |
+|  74 |    4066 | work  | Nullam.suscipit.est@etultricesposuere.com         |
+|  75 |    4825 | work  | a.scelerisque@nulla.ca                            |
+|  76 |    4324 | work  | purus@vitae.co.uk                                 |
+|  77 |    5523 | work  | Duis@ac.co.uk                                     |
+|  78 |    5612 | work  | metus@Maecenasornare.org                          |
+|  79 |    5714 | work  | vitae@Nunc.edu                                    |
+|  80 |    5115 | work  | consectetuer.adipiscing@leoVivamus.com            |
+|  81 |    5199 | other | nulla@Proinvel.net                                |
+|  82 |    5804 | other | Nullam@variusNam.net                              |
+|  83 |    4744 | other | enim.gravida@fringillaornare.ca                   |
+|  84 |    4070 | other | ligula.Aenean.gravida@egestasAliquamfringilla.net |
+|  85 |    5269 | other | odio@odio.com                                     |
+|  86 |    4383 | other | tristique.senectus@lectusNullam.org               |
+|  87 |    4275 | other | at.risus.Nunc@Pellentesqueutipsum.net             |
+|  88 |    4963 | other | metus.Aenean@etmalesuadafames.co.uk               |
+|  89 |    5494 | other | lacus.vestibulum.lorem@idmagna.net                |
+|  90 |    5655 | other | lorem.sit@condimentum.org                         |
+|  91 |    5113 | temp  | ante@facilisiseget.org                            |
+|  92 |    5467 | temp  | enim@pede.co.uk                                   |
+|  93 |    4001 | temp  | litora.torquent.per@Suspendissetristique.com      |
+|  94 |    5278 | temp  | ante.Nunc.mauris@viverra.com                      |
+|  95 |    4097 | temp  | ligula.Aliquam.erat@consequatnec.com              |
+|  96 |    4789 | temp  | Sed@lectussit.org                                 |
+|  97 |    5826 | temp  | amet.faucibus.ut@arcu.edu                         |
+|  98 |    5055 | temp  | condimentum.eget@Suspendissesagittis.net          |
+|  99 |    4629 | temp  | mi.enim.condimentum@Crasinterdum.net              |
+| 100 |    5184 | temp  | sit.amet@purusDuiselementum.edu                   |
++-----+---------+-------+---------------------------------------------------+
+
+
+
+-- temp becomes work
+|  71 |    5457 | home  | tristique@ligulaAeneaneuismod.co.uk               |
+|  72 |    5812 | home  | lacinia.orci.consectetuer@Curabitur.ca            |
+|  73 |    5046 | home  | torquent.per@eleifendnon.net                      |
+|  74 |    4066 | home  | Nullam.suscipit.est@etultricesposuere.com         |
+|  75 |    4825 | home  | a.scelerisque@nulla.ca                            |
+|  76 |    4324 | home  | purus@vitae.co.uk                                 |
+|  77 |    5523 | home  | Duis@ac.co.uk                                     |
+|  78 |    5612 | home  | metus@Maecenasornare.org                          |
+|  79 |    5714 | home  | vitae@Nunc.edu                                    |
+|  80 |    5115 | home  | consectetuer.adipiscing@leoVivamus.com            |
+|  81 |    5199 | other | nulla@Proinvel.net                                |
+|  82 |    5804 | other | Nullam@variusNam.net                              |
+|  83 |    4744 | other | enim.gravida@fringillaornare.ca                   |
+|  84 |    4070 | other | ligula.Aenean.gravida@egestasAliquamfringilla.net |
+|  85 |    5269 | other | odio@odio.com                                     |
+|  86 |    4383 | other | tristique.senectus@lectusNullam.org               |
+|  87 |    4275 | other | at.risus.Nunc@Pellentesqueutipsum.net             |
+|  88 |    4963 | other | metus.Aenean@etmalesuadafames.co.uk               |
+|  89 |    5494 | other | lacus.vestibulum.lorem@idmagna.net                |
+|  90 |    5655 | other | lorem.sit@condimentum.org                         |
+|  91 |    5113 | work  | ante@facilisiseget.org                            |
+|  92 |    5467 | work  | enim@pede.co.uk                                   |
+|  93 |    4001 | work  | litora.torquent.per@Suspendissetristique.com      |
+|  94 |    5278 | work  | ante.Nunc.mauris@viverra.com                      |
+|  95 |    4097 | work  | ligula.Aliquam.erat@consequatnec.com              |
+|  96 |    4789 | work  | Sed@lectussit.org                                 |
+|  97 |    5826 | work  | amet.faucibus.ut@arcu.edu                         |
+|  98 |    5055 | work  | condimentum.eget@Suspendissesagittis.net          |
+|  99 |    4629 | work  | mi.enim.condimentum@Crasinterdum.net              |
+| 100 |    5184 | work  | sit.amet@purusDuiselementum.edu                   |
++-----+---------+-------+---------------------------------------------------+

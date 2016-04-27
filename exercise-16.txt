@@ -1,0 +1,29 @@
+# Exercise 16
+-------------------------------------------------------------------------
+# Randomize the civic number of 10 other addresses whose primary key value ranges between 715 and 800
+
+
+mysql>  SELECT
+            CONCAT_WS(' ', FLOOR(RAND()*(999-1)+1), SUBSTRING(addressLine1, LOCATE(' ' ,addressLine1)+1)) AS randAddress,
+            addressLine1,
+            type
+        FROM
+            Address
+        WHERE
+            id >= 715 AND id <= 800 AND type="other" AND SUBSTRING(addressLine1, 1,1) RLIKE '^[0-9]'
+        LIMIT 10;
+        
++-------------------+----------------------+-------+
+| randAddress       | addressLine1         | type  |
++-------------------+----------------------+-------+
+| 197 Elit St.      | 7509 Elit St.        | other |
+| 844 Metus St.     | 999 Metus St.        | other |
+| 634 Risus Ave     | 507-8762 Risus Ave   | other |
+| 638 Tristique Ave | 8365 Tristique Ave   | other |
+| 291 Dignissim St. | 297 Dignissim St.    | other |
+| 535 Eu, Ave       | 355-6963 Eu, Ave     | other |
+| 806 Interdum. St. | 1338 Interdum. St.   | other |
+| 426 Auctor Road   | 770-2070 Auctor Road | other |
+| 710 Enim Rd.      | 832-8054 Enim Rd.    | other |
+| 275 Est. Road     | 267 Est. Road        | other |
++-------------------+----------------------+-------+

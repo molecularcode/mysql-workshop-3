@@ -1,0 +1,13 @@
+# Exercise 21 (Workshop Challenge)
+--------------------------------------------------------------------------------
+# Connect to your MySQL instance using the root user
+# Execute this Statement: DROP DATABASE mysql; EXIT;
+# Execute this Command sudo killall mysqld
+# Execute this Command mysql-ctl start
+#   OMG!!! Explain what happened.
+#   Find a way to recover the MySQL instance.
+
+
+Opps, deleted my mysql DB with all config settings, users, permissions etc. Then killed all MySQL process running
+
+sudo /etc/init.d/mysql restart

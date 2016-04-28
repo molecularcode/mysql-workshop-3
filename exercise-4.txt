@@ -6,9 +6,9 @@
 
 mysql>  SELECT
             CONCAT (
-            UPPER(SUBSTRING(firstName,1,1)),
-            LOWER(SUBSTRING(firstName,2,CHAR_LENGTH(firstName)-1)),
-            UPPER(SUBSTRING(firstName,CHAR_LENGTH(firstName)-1,1))
+                UPPER(SUBSTRING(firstName,1,1)),
+                LOWER(SUBSTRING(firstName,2,CHAR_LENGTH(firstName)-1)),
+                UPPER(SUBSTRING(firstName,CHAR_LENGTH(firstName)-1,1))
             )
             AS firstName
         FROM

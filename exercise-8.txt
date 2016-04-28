@@ -7,7 +7,7 @@ mysql>  SELECT
             Phone.type, count(subtype) AS amount
         FROM
             Phone
-        INNER JOIN 
+        JOIN 
             Entry ON Phone.entryId = Entry.id
         WHERE
             birthday >= "1950-10-01" AND birthday <= "1960-10-31"

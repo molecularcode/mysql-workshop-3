@@ -13,7 +13,7 @@ mysql> CREATE TABLE NewAccount (
       createdOn datetime DEFAULT NULL,
       modifiedOn datetime DEFAULT NULL,
       PRIMARY KEY (id)
-    );
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 mysql> INSERT INTO NewAccount (
         id,

@@ -5,7 +5,7 @@
 
 mysql>  ALTER TABLE ElectronicMail
         CHANGE type type ENUM('home','work', 'other', 'temp');
-
+        
         -- home becomes temp
         UPDATE ElectronicMail
         SET type='temp'
@@ -25,6 +25,13 @@ mysql>  ALTER TABLE ElectronicMail
         CHANGE type type ENUM('home','work', 'other');
 
 
+
+------------------------------------------------------------------
+        CASE (type='home' || type='work')
+        WHEN type='home' THEN UPDATE ElectronicMail SET type='work'
+        WHEN type='work' THEN UPDATE ElectronicMail SET type='home'
+        END;
+------------------------------------------------------------------
 
 -- home becomes temp
 |  71 |    5457 | work  | tristique@ligulaAeneaneuismod.co.uk               |
